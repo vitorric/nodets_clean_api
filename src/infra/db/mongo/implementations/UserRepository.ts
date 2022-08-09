@@ -1,5 +1,5 @@
-import { IUserRepository } from "@application/repositories/IUserRepository";
-import User from "@domain/entities/User";
+import { IUserRepository } from '@application/repositories/IUserRepository';
+import User from '@domain/entities/User';
 
 import schema from '../schemas/UserSchema';
 

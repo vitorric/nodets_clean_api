@@ -1,5 +1,5 @@
-import { UserFactory } from "@application/factories/UserFactory";
-import { ResponseController } from "@core/controller/ResponseController";
+import { UserFactory } from '@application/factories/UserFactory';
+import { ResponseController } from '@core/controller/ResponseController';
 
 export default class UserController {
   async login(event: any): Promise<ResponseController> {

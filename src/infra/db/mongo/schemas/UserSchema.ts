@@ -1,5 +1,4 @@
-import { Roles } from '@domain/entities/User';
-import { Schema, Document, Types } from 'mongoose';
+import { Schema } from 'mongoose';
 
 import conn from '../connection';
 
