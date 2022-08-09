@@ -1,25 +1,21 @@
 import mongoose from 'mongoose';
 
 const config = {
-    MONGO_HOST: process.env.MONGO_HOST,
-    MONGO_PORT: process.env.MONGO_PORT,
+    MONGO_HOST: process.env.MONGO_URL || 'localhost',
+    MONGO_PORT: process.env.MONGO_PORT || '27017',
     MONGO_DB: process.env.MONGO_DB,
-    MONGO_AUTH_SOURCE: process.env.MONGO_AUTH_SOURCE,
     MONGO_USER: process.env.MONGO_USER,
-    MONGO_PWD: process.env.MONGO_PWD,
+    MONGO_PASS: process.env.MONGO_PASS,
 };
 
-const urlConfigs = {
-    dev: `mongodb://${config.MONGO_HOST}:${config.MONGO_PORT}/${config.MONGO_DB}`,
-    production: `mongodb://${config.MONGO_USER}:${config.MONGO_PWD}@${config.MONGO_HOST}:${config.MONGO_PORT}/${config.MONGO_DB}?authSource=${config.MONGO_AUTH_SOURCE}&authMechanism=SCRAM-SHA-1`,
-};
+const url = `mongodb://${config.MONGO_USER}:${config.MONGO_PASS}@${config.MONGO_HOST}:${config.MONGO_PORT}/${config.MONGO_DB}?authMechanism=SCRAM-SHA-1`;
 
 const options: mongoose.ConnectOptions = {
     keepAlive: true,
     connectTimeoutMS: 0,
 };
 
-const db = mongoose.createConnection(urlConfigs[process.env.NODE_ENV], options);
+const db = mongoose.createConnection(url, options);
 
 db.once('connected', () => {
     console.log('Mongodb connection', process.env.NODE_ENV);

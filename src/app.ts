@@ -18,6 +18,14 @@ app.all('*', (req, res, next) => {
         'Content-type, Accept, Authorization, content-encoding'
     );
 
+    // An example displaying the respective memory
+    // usages in megabytes(MB)
+    for (const [key, value] of Object.entries(process.memoryUsage())) {
+        if (key === 'rss') {
+            console.log(`Memory usage by ${key}, ${value / 1000000}MB `)
+        }
+    }
+
     next();
 });
 
