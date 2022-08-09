@@ -12,6 +12,7 @@
       "target": "es2019",
       "sourceMap": true,
       "outDir": "./dist",
+      "rootDir": "./src",
       "baseUrl": "./",
       "resolveJsonModule": true,
       "incremental": true,
@@ -20,8 +21,7 @@
         "@core/*": ["./src/core/*"],
         "@application/*": ["src/application/*"],
         "@domain/*": ["./src/domain/*"],
-        "@infra/*": ["./src/infra/*"],
-        "@test/*": ["./test/*"]
+        "@infra/*": ["./src/infra/*"]
       }
     }
   }

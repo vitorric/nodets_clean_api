@@ -12,6 +12,12 @@
     "dockerbuild:dev": "docker-compose --env-file .env.dev build",
     "dockerup:dev": "docker-compose --env-file .env.dev up"
   },
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "mongoose": "^6.5.1",
+    "morgan": "^1.10.0"
+  },
   "devDependencies": {
     "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.13",
@@ -21,11 +27,5 @@
     "ts-node-dev": "^2.0.0",
     "tsconfig-paths": "^4.0.0",
     "typescript": "^4.7.4"
-  },
-  "dependencies": {
-    "dotenv": "^16.0.1",
-    "express": "^4.18.1",
-    "mongoose": "^6.5.1",
-    "morgan": "^1.10.0"
   }
 }

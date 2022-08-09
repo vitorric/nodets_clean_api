@@ -6,14 +6,16 @@ networks:
 
 services:
   app:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
     container_name: nodets
     restart: always
     ports:
       - ${PORT}:${PORT}
     volumes:
-      - .:/app
-      - node_modules:/app/node_modules
+      - ./:/usr/local/apps/nodets
+      - ignore:/usr/local/apps/nodets/node_modules/
     environment:
       - MONGO_URL=nodets-mongodb
       - REDIS_URL=nodets-redis
@@ -41,7 +43,7 @@ services:
       - MONGODB_PASSWORD=${MONGO_PASS}
       - MONGODB_DATABASE=${MONGO_DB}
     volumes:
-      - data:/data/bitnami/mongodb/data
+      - data:/bitnami/mongodb/data
     networks:
       - nodets-network
 
@@ -55,10 +57,10 @@ services:
       - ALLOW_EMPTY_PASSWORD=no
       - REDIS_PASSWORD=${REDIS_PASS}
     volumes:
-      - data:/data/bitnami/redis/data
+      - data:/bitnami/redis/data
     networks:
       - nodets-network
 
 volumes:
-  node_modules:
+  ignore:
   data:

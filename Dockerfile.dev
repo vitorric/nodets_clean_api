@@ -1,0 +1,15 @@
+FROM node:lts-alpine
+
+USER node
+
+WORKDIR /usr/local/apps/nodets
+
+COPY package.json yarn.lock tsconfig.json .env.dev ./
+
+COPY src ./src
+
+RUN yarn install --silent --frozen-lockfile --no-cache
+
+EXPOSE ${PORT}
+
+CMD [ "yarn dev" ]
