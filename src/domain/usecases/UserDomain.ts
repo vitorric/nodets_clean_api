@@ -6,9 +6,7 @@ export namespace UserDomain {
     userId: any;
   };
   export type Login = {
-    user: {
-      email: string;
-      password: string;
-    };
+    email: string;
+    password: string;
   };
 }

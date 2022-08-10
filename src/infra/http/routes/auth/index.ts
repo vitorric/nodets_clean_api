@@ -7,6 +7,10 @@ import { reponse } from '../../utils';
 const router = Router();
 const userController: UserController = new UserController();
 
+router.post('/create', async (request, response) =>
+  reponse(response, await userController.create({ ...request }))
+);
+
 router.post('/login', async (request, response) =>
   reponse(response, await userController.login({ ...request }))
 );

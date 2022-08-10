@@ -6,6 +6,7 @@ export class UserCreate {
   constructor(private readonly userRepository: IUserRepository) {}
 
   async execute(user: UserDomain.Create): Promise<ResponseController> {
-    return ok(user);
+    const newUser = await this.userRepository.create(user);
+    return ok(newUser);
   }
 }

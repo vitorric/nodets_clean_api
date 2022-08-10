@@ -6,6 +6,7 @@ export class UserFind {
   constructor(private readonly userRepository: IUserRepository) {}
 
   async execute({ userId }: UserDomain.Find): Promise<ResponseController> {
-    return ok(userId);
+    const user = await this.userRepository.findById(userId);
+    return ok(user);
   }
 }
